@@ -20,18 +20,17 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
 ----------- | ----------------- | ------------- | ---------- |
 1           | Creates profile   | Generic User  | High       |
 2           | Adds an event     | Generic User  | Low        |
-3           | Browses event     | Generic User  | Med        |
-4           | Finds on Linkedin | Generic User  | Low        |
+3           | Browses event     | Generic User  | High       |
+4           | Finds on LinkedIn | Generic User  | Low        |
 5           | Has interest in   | Company       | High       |
-6           | Edit profile      | Generic User  | Low        |
-7           | Create event      | Generic User  | Low        |
-8           | Edit event        | Generic User  | High       |
+6           | Edit profile      | Generic User  | Med        |
+7           | Create event      | Generic User  | Med        |
 
 
 #### Case ID 1 - Creates profile
 **Actor:** Generic User.
 
-**Description:** A user will have to create a user profile containing their personal information, like their name, location, phone number, link to Linkedin, brief description of themselves, etc. Both companies and participants have to create their profile, nevertheless as for the participants there is a public area containing the above mentioned information, and a private one containing information directed only at companies so only companies will be able to see that part of the participants's profile.      
+**Description:** A user will have to create a user profile containing their personal information, like their name, location, phone number, link to LinkedIn, brief description of themselves, etc. Both companies and participants have to create their profile, nevertheless as for the participants there is a public area containing the above mentioned information, and a private one containing information directed only at companies so only companies will be able to see that part of the participants's profile.      
 
 **Preconditions and Postconditions:** First, the user must choose to be either a compay or a participant. In order to create a profile the user needs to register. To register they need to input their name, email/phone number and a password. After registering and loging into the app, the user needs to file a form with profile information and after they submit the form the profile will be created and saved in a database. The login information can be saved onto the device after one usage.
 
@@ -64,16 +63,16 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
 **Alternative Flows and Exceptions:** If no event corresponds to the search, then a message will appear, and no events will be shown. 
 
 
-#### Case ID 4 - Finds on Linked in
+#### Case ID 4 - Finds on LinkedIn
 **Actor:** Generic User.
 
-**Description:** Both participants of an event and companies attending it will want to find each other on Linkedin, and currently it can become a long and hard task. NetFair makes finding for connections on Linkedin look like a walk in the park due to it's in-built system. That way when a participant wants to add some other participant to their Linkedin network, or even a company, or vice-versa, they can within the tap of a button.
+**Description:** Both participants of an event and companies attending it will want to find each other on LinkedIn, and currently it can become a long and hard task. NetFair makes finding for connections on LinkedIn look like a walk in the park due to it's in-built system. That way when a participant wants to add some other participant to their LinkedIn network, or even a company, or vice-versa, they can within the tap of a button.
 
-**Preconditions and Postconditions:** User must be registered and logged in. Opens Linked in app on the given user's profile.
+**Preconditions and Postconditions:** User must be registered and logged in. Opens LinkedIn app on the given user's profile.
  
-**Normal Flow:** Tap the button "Find on Linked in" to open the Linked in app on the given user profile.
+**Normal Flow:** Tap the button "Find on LinkedIn" to open the LinkedIn app on the given user profile.
 
-**Alternative Flows and Exceptions:** The user does not have a Linked in profile, in which case the button will appear in a different color, indicating it's disabled. The user does not have the Linked in app installed, in which case they will be redirected to the app store on the Linked in install page. 
+**Alternative Flows and Exceptions:** The user does not have a LinkedIn profile, in which case the button will appear in a different color, indicating it's disabled. The user does not have the LinkedIn app installed, in which case they will be redirected to the app store on the LinkedIn install page. 
 
 
 #### Case ID 5 - Has interested in
