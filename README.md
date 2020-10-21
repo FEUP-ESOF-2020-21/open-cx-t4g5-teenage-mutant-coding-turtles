@@ -99,7 +99,7 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
 **Alternative Flows and Exceptions:** Invalid information put on certain fields will result in an error as well as empty mandatory fields.
 
 
-#### Case ID 6 - Create event
+#### Case ID 7 - Create event
 **Actor:** Generic user
 
 **Description:** A user will be able to create new events and add them to the application's list of available events. Upon creating the event, the user will have to enter the name of te event, a date and a thumbnail and the organizations name. Afterwards, two random access codes will be generated: one for participants and one for companies.         
@@ -113,3 +113,25 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
 
 
 ### User Stories
+
+**1)**
+As a user i want to be able to create a profile.
+As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
+As a user I want to be able have a description of myself when creating a profile.
+As a participant I want to have a private profile directed for companies.
+
+**2)**
+As a user I wnat to be able to choose which events I am atending.
+As a user I want to see who is attending each event.
+As a user I want to see which events I am attending in the events callendar. 
+
+**3)**
+As a user I want to be able to search for events in me interest areas.
+As a user I want to be able to search for people in my areas of interest in each event.
+As a user I want to be able to show/hide participants in an event.
+
+**4)**
+As a user I want to be able to add someone to my linkedIn inside the app.
+As a user I want to easily find someones linkedIn in their profile.
+As a user i wnat to be redirected to someones linkedIn when clicking a button.
+
