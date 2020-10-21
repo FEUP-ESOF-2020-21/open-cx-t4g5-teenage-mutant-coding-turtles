@@ -135,3 +135,47 @@ As a user I want to be able to add someone to my linkedIn inside the app.
 As a user I want to easily find someones linkedIn in their profile.
 As a user i wnat to be redirected to someones linkedIn when clicking a button.
 
+ #### User Story ID 14 - Express interest
+ 
+ As a logged in Company I want to express interest in participants so that I can communicate with them.
+ 
+  #### User Story ID 15 - Acknowledge interest Notification
+  
+  As a logged in Participant I want to be notified when a Company expresses interest in me so that I can communicate with them.
+  
+  #### User Story ID 16 - Acknowledge interest Email
+  
+  As a logged in Participant I want to receive a email when a Company expresses interest in me so that I can communicate with them.
+  
+   #### User Story ID 17 - Edit profile
+   
+   As a logged in Generic User I want to be able to edit my profile so that I can change the information about me available to others.
+   
+   #### User Story ID 18 - Delete profile
+   
+   As a logged in Generic User I want to be able to delete my profile so that I can delete the information about me available to others.
+  
+  #### User Story ID 19 - Create Event
+  
+  As a logged in Generic User I want to create a new Event so that I can connect participants with companies on my event.
+  
+  #### User Story ID 20 - Share Event Codes
+  
+  As a logged in Generic User I want to receive the acess codes for my event via email so that I can share them with the participants and the companies attending.
+  
+  #### User Story ID 21 - Search Events
+  
+  As a logged in Generic User I want to be able to search for a specific event so that I can easily find the one I want.
+  
+  #### User Story ID 22 - Filter Events
+  
+  As a logged in Generic User I want to be able to filter the events list so that I can easily find the ones I want.
+  
+  #### User Story ID 23 - Search Participants
+  
+  As a logged in Generic User I want to be able to search for a specific participant so that I can easily find the one I want.
+  
+  #### User Story ID 24 - Filter Participants
+  
+  As a logged in Generic User I want to be able to filter the participants list so that I can easily find the ones I want.
+
