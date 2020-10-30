@@ -116,26 +116,26 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
 
 ### User Stories
 
-**1)**
-As a user i want to be able to create a profile.
-As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
-As a user I want to be able have a description of myself when creating a profile.
-As a participant I want to have a private profile directed for companies.
+### User stories for Case ID 1
+**1:** As a user i want to be able to create a profile.
+**2:** As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
+**3:** As a user I want to be able have a description of myself when creating a profile.
+**4:** As a participant I want to have a private profile directed for companies.
 
-**2)**
-As a user I wnat to be able to choose which events I am atending.
-As a user I want to see who is attending each event.
-As a user I want to see which events I am attending in the events callendar. 
+### User stories for Case ID 2
+**5)** As a user I wnat to be able to choose which events I am atending.
+**6)** As a user I want to see who is attending each event.
+**7)** As a user I want to see which events I am attending in the events callendar. 
 
-**3)**
-As a user I want to be able to search for events in me interest areas.
-As a user I want to be able to search for people in my areas of interest in each event.
-As a user I want to be able to show/hide participants in an event.
+### User stories for Case ID 3
+**8:** As a user I want to be able to search for events in me interest areas.
+**9:** As a user I want to be able to search for people in my areas of interest in each event.
+**10:** As a user I want to be able to show/hide participants in an event.
 
-**4)**
-As a user I want to be able to add someone to my linkedIn inside the app.
-As a user I want to easily find someones linkedIn in their profile.
-As a user i wnat to be redirected to someones linkedIn when clicking a button.
+### User stories for Case ID 4
+**11:** As a user I want to be able to add someone to my linkedIn inside the app.
+**12:** As a user I want to easily find someones linkedIn in their profile.
+**13:** As a user i wnat to be redirected to someones linkedIn when clicking a button.
 
  #### User Story ID 14 - Express interest
  
