@@ -58,11 +58,17 @@ class LoginFormState extends State<LoginForm> {
             validator: (value) {
               if (value.isEmpty) {
                 return 'Please enter some text';
-              }
-              return null;
+              } else if (RegExp(
+                      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                  .hasMatch(
+                      value)) // regex from: https://stackoverflow.com/questions/16800540/validate-email-address-in-dart
+                return null;
+
+              return 'Enter a valid email';
             },
           ),
           TextFormField(
+            obscureText: true,
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Password',
@@ -80,7 +86,8 @@ class LoginFormState extends State<LoginForm> {
             children: [
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.deepPurple),
                 ),
                 onPressed: () {
                   // Validate returns true if the form is valid, or false
@@ -95,7 +102,8 @@ class LoginFormState extends State<LoginForm> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.deepPurple),
                 ),
                 onPressed: () {
                   Scaffold.of(context).showSnackBar(
