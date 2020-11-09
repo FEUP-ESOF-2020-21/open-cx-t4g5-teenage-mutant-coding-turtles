@@ -9,7 +9,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NetFair',
+      theme: ThemeData(
+        brightness: Brightness.dark, 
+        ),
       home: Scaffold(
+        // backgroundColor: Color.fromRGBO(12, 12, 13, 1), // TODO: Cor
         body: ListView(
           children: [
             Image(image: AssetImage(
@@ -52,7 +56,10 @@ class LoginFormState extends State<LoginForm> {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Email',
-              labelText: 'Email'
+              labelText: 'Email',
+              prefixIcon: Icon(
+                Icons.email_rounded
+              )
             ),
             validator: (value) {
               if (value.isEmpty) {
@@ -65,7 +72,10 @@ class LoginFormState extends State<LoginForm> {
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: 'Password',
-              labelText: 'Password'
+              labelText: 'Password',
+              prefixIcon: Icon(
+                Icons.vpn_key_rounded
+              )
             ),
             validator: (value) {
               if (value.isEmpty) {
