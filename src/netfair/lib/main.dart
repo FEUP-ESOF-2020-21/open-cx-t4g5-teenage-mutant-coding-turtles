@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Define a custom Form widget.
 class LoginForm extends StatefulWidget {
   @override
   LoginFormState createState() {
@@ -35,8 +34,6 @@ class LoginForm extends StatefulWidget {
   }
 }
 
-// Define a corresponding State class.
-// This class holds data related to the form.
 class LoginFormState extends State<LoginForm> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
@@ -82,6 +79,9 @@ class LoginFormState extends State<LoginForm> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
+                ),
                 onPressed: () {
                   // Validate returns true if the form is valid, or false
                   // otherwise.
@@ -91,9 +91,12 @@ class LoginFormState extends State<LoginForm> {
                         SnackBar(content: Text('Processing Data')));
                   }
                 },
-                child: Text('Login'),
+                child: Text('Sign In'),
               ),
               ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple),
+                ),
                 onPressed: () {
                   Scaffold.of(context).showSnackBar(
                       SnackBar(content: Text('Redirect to Sign Up Screen')));
