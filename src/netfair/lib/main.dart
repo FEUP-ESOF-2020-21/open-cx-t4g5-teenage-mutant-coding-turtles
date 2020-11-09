@@ -10,19 +10,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'NetFair',
       theme: ThemeData(
-        brightness: Brightness.dark, 
-        ),
-      home: Scaffold(
-        // backgroundColor: Color.fromRGBO(12, 12, 13, 1), // TODO: Cor
-        body: ListView(
-          children: [
-            Image(image: AssetImage(
-              'assets/app_logo.jpg')
-              ),
-            LoginForm()
-          ],
-        )
+        brightness: Brightness.dark,
       ),
+      home: Scaffold(
+          backgroundColor: Color.fromRGBO(36, 36, 44, 1),
+          body: ListView(
+            children: [
+              Image(
+                image: AssetImage('assets/app_logo_cropped.jpg'),
+                height: 375,
+              ),
+              LoginForm()
+            ],
+          )),
     );
   }
 }
@@ -54,13 +54,10 @@ class LoginFormState extends State<LoginForm> {
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Email',
-              labelText: 'Email',
-              prefixIcon: Icon(
-                Icons.email_rounded
-              )
-            ),
+                border: InputBorder.none,
+                hintText: 'Email',
+                labelText: 'Email',
+                prefixIcon: Icon(Icons.email_rounded)),
             validator: (value) {
               if (value.isEmpty) {
                 return 'Please enter some text';
@@ -68,15 +65,12 @@ class LoginFormState extends State<LoginForm> {
               return null;
             },
           ),
-          TextFormField( 
+          TextFormField(
             decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Password',
-              labelText: 'Password',
-              prefixIcon: Icon(
-                Icons.vpn_key_rounded
-              )
-            ),
+                border: InputBorder.none,
+                hintText: 'Password',
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.vpn_key_rounded)),
             validator: (value) {
               if (value.isEmpty) {
                 return 'Please enter some text';
@@ -87,27 +81,27 @@ class LoginFormState extends State<LoginForm> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-            ElevatedButton(
-              onPressed: () {
-                // Validate returns true if the form is valid, or false
-                // otherwise.
-                if (_formKey.currentState.validate()) {
-                  // If the form is valid, display a Snackbar.wsd
-                  Scaffold.of(context)
-                      .showSnackBar(SnackBar(content: Text('Processing Data')));
-                }
-              },
-              child: Text('Login'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Scaffold.of(context)
-                  .showSnackBar(SnackBar(content: Text('Redirect to Sign Up Screen')));
-              },
-              child: Text('Sign Up'),
-            ),
-          ],)
-          
+              ElevatedButton(
+                onPressed: () {
+                  // Validate returns true if the form is valid, or false
+                  // otherwise.
+                  if (_formKey.currentState.validate()) {
+                    // If the form is valid, display a Snackbar.wsd
+                    Scaffold.of(context).showSnackBar(
+                        SnackBar(content: Text('Processing Data')));
+                  }
+                },
+                child: Text('Login'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Scaffold.of(context).showSnackBar(
+                      SnackBar(content: Text('Redirect to Sign Up Screen')));
+                },
+                child: Text('Sign Up'),
+              ),
+            ],
+          )
         ],
       ),
     );
