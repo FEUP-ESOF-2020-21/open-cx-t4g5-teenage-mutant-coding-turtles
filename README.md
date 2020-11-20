@@ -1,7 +1,8 @@
 # NetFair  
+
 #### Connect With Your Future
 
-![image of netfair logo](app_logo.jpg)
+![image of netfair logo](docs/images/app_logo.jpg)
 
 ### Overview
 
@@ -9,12 +10,11 @@ As of today's circumnstances due to COVID-19 virus, few events are prepared to e
 
 So we want to facilitate the entire process by showing the user who is participating on a given online conference (within a certain even), as well as all the companies present; mediate connections between participants and conferencees; and overall smoothen information filtering for both sides. All this to provide a cleaner, more organized experience for everyone envolved in those events.
 
-
 ### Use Cases
 
 ##### Diagram
 
-![image of use cases uml](use_cases.png)
+![image of use cases uml](docs/images/use_cases.png)
 
 ##### Table 
 
@@ -197,11 +197,8 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
   https://trello.com/b/Imgn05sb/esof
 
 
-![image create profile](mock_img_2.jpg)
+![image create profile](docs/images/mock_img_2.jpg)
 
-![image create profile](mock_img_3.jpg)
+![image create profile](docs/images/mock_img_3.jpg)
 
-![image user profile](mock_img_4.jpg)
-
-
-
+![image user profile](docs/images/mock_img_4.jpg)
