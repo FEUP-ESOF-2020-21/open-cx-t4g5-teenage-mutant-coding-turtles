@@ -190,6 +190,11 @@ Use Case ID | Use Case Name     | Primary Actor | Complexity |
   #### User Story ID 24 - Filter Participants
   
   As a logged in Generic User I want to be able to filter the participants list so that I can easily find the ones I want.
+  
+  
+  ## Project Management
+  
+  https://trello.com/b/Imgn05sb/esof
 
 
 ![image create profile](mock_img_2.jpg)
