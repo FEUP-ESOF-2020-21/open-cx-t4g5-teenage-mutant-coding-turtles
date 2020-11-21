@@ -37,40 +37,56 @@ Thank you!
 
 ## Product Vision
 
-Start by defining a clear and concise vision for your module, to help members of the team, contributors, and users into focusing their often disparate views into a concise, visual, and short textual form. It provides a "high concept" of the product for marketers, developers, and managers.
-
-A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future.
-
-**We favor a catchy and concise statement, ideally one sentence.**
-
-To learn more about how to write a good product vision, please see also:
-* [How To Create A Convincing Product Vision To Guide Your Team, by uxstudioteam.com](https://uxstudioteam.com/ux-blog/product-vision/)
-* [Product Management: Product Vision, by ProductPlan](https://www.productplan.com/glossary/product-vision/)
-* [Vision, by scrumbook.org](http://scrumbook.org/value-stream/vision.html)
-* [How to write a vision, by dummies.com](https://www.dummies.com/business/marketing/branding/how-to-write-vision-and-mission-statements-for-your-brand/)
-* [20 Inspiring Vision Statement Examples (2019 Updated), by lifehack.org](https://www.lifehack.org/articles/work/20-sample-vision-statement-for-the-new-startup.html)
+Neftfair is an app designed to provide a simple and elegant solution to networking at online events, such as carreer fairs, tech fairs, etc. 
+Empowered by sorting and filtering algorithms in a clean, oranized and user friendly UI, both companies and participants can interact together or comunicate with each other seamlessly, and view each others relevant information in a structured fashion using the apps features and functionalities. 
 
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+As of today's circumnstances due to COVID-19 virus, few events are prepared to effectively deliver the experience we, as atendees, are used to receive. Everything's often confusing and messy because of the high number of participants, and it's quite more difficult to methodicaly organize conferences and meetings within this specter. As **participants** it's not easy to understand which companies are interested in you, with whom should you aim to connect, or even how to find key individuals that also partake on the event in social media. As **companies**, it's hard to navigate through an overwhelming sea of participants, and filtering all the relevant information can prove to be a daunting challenge.
+
+So we want to facilitate the entire process by showing the user who is participating on a given online conference (within a certain event), as well as all the companies present; mediate connections between participants and conferencees; and overall smoothen information filtering for both sides. All this to provide a cleaner, more organized experience for everyone envolved in those events.
 
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
+### Functional requirements
 
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
+* Users can be divided into 3 groups: Companies, Participants, and Organizers. Each group can be given separate rights (i.e. Organizers can create and post new events).
+* Search option given to user to search users from various events. 
+* Search option given to user to search for a given event. 
+* Share option to share a certain event across diferent platforms.
+* Calendarization feature to schedule and keep track of incoming events. 
+* Users can choose to participate in an event from within the app, it being add to their events schedule.
+* Links and anchors to relevant external platforms (i.e. social media profiles)
+* Users can updload their CV into their profile
+
+### Non-functional requirements
+
+* Participants and Companies never allowed to edit events information.
+* Participants and Companies have to be givven an access code upon entering a new event.
+* The software should be portable. So moving from one OS to other OS does not create any problem.
+* It should be capable enough to handle 100 000 users without affecting its performance.
+* Users must complete their profile before navigating through the events.
+* New users must choose their user group (Participant, Company, Organization) before navingating through the app.
+* Users can change their user group at any time in the settings menu.
+
+### User interface requirements
+
+* Easy to operate 
+* Quick in response
+* Effectively handling operational errors
+* Providing simple yet consistent user interface
+* User friendly, unnecessary user interactions should be avoided.
+* Extensibility and modularity, interoperable across a wide variety of platforms, media types and networks
+* Efficient in terms of both speed and user interaction.
+
 
 ### Use case diagram 
 
 ![image of use cases uml](images/use_cases.png)
 
-##### Table 
+##### Use case table 
 
 Use Case ID | Use Case Name     | Primary Actor | Complexity |      
 ----------- | ----------------- | ------------- | ---------- |
@@ -172,80 +188,103 @@ This section will contain the requirements of the product described as **user st
 
 ### User Stories
 
-### User stories for Case ID 1
-**1:** As a user i want to be able to create a profile.
 
-**2:** As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
+#### User Story ID 1 - Create user profile
 
-**3:** As a user I want to be able have a description of myself when creating a profile.
+As a user i want to be able to create a profile.
 
-**4:** As a participant I want to have a private profile directed for companies.
+#### User Story ID 2 - Select type of user
 
-### User stories for Case ID 2
-**5)** As a user I wnat to be able to choose which events I am atending.
+As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
 
-**6)** As a user I want to see who is attending each event.
+#### User Story ID 3 - Add profile description
 
-**7)** As a user I want to see which events I am attending in the events callendar. 
+As a user I want to be able have a description of myself when creating a profile.
 
+#### User Story ID 4 - Create private profile section
 
-### User stories for Case ID 3
-**8:** As a user I want to be able to search for events in me interest areas.
+As a participant I want to have a private profile directed for companies.
 
-**9:** As a user I want to be able to search for people in my areas of interest in each event.
+#### User Story ID 5 - Choose attending events
 
-**10:** As a user I want to be able to show/hide participants in an event.
+As a user I wnat to be able to choose which events I am atending.
 
-### User stories for Case ID 4
-**11:** As a user I want to be able to add someone to my linkedIn inside the app.
+#### User Story ID 6 - Find event participants
 
-**12:** As a user I want to easily find someones linkedIn in their profile.
+As a user I want to see who is attending each event.
 
-**13:** As a user i wnat to be redirected to someones linkedIn when clicking a button.
+#### User Story ID 7 - See my events
 
- #### User Story ID 14 - Express interest
- 
- As a logged in Company I want to express interest in participants so that I can communicate with them.
- 
-  #### User Story ID 15 - Acknowledge interest Notification
-  
-  As a logged in Participant I want to be notified when a Company expresses interest in me so that I can communicate with them.
-  
-  #### User Story ID 16 - Acknowledge interest Email
-  
-  As a logged in Participant I want to receive a email when a Company expresses interest in me so that I can communicate with them.
-  
-   #### User Story ID 17 - Edit profile
-   
-   As a logged in Generic User I want to be able to edit my profile so that I can change the information about me available to others.
-   
-   #### User Story ID 18 - Delete profile
-   
-   As a logged in Generic User I want to be able to delete my profile so that I can delete the information about me available to others.
-  
-  #### User Story ID 19 - Create Event
-  
-  As a logged in Generic User I want to create a new Event so that I can connect participants with companies on my event.
-  
-  #### User Story ID 20 - Share Event Codes
-  
-  As a logged in Generic User I want to receive the acess codes for my event via email so that I can share them with the participants and the companies attending.
-  
-  #### User Story ID 21 - Search Events
-  
-  As a logged in Generic User I want to be able to search for a specific event so that I can easily find the one I want.
-  
-  #### User Story ID 22 - Filter Events
-  
-  As a logged in Generic User I want to be able to filter the events list so that I can easily find the ones I want.
-  
-  #### User Story ID 23 - Search Participants
-  
-  As a logged in Generic User I want to be able to search for a specific participant so that I can easily find the one I want.
-  
-  #### User Story ID 24 - Filter Participants
-  
-  As a logged in Generic User I want to be able to filter the participants list so that I can easily find the ones I want.
+As a user I want to see which events I am attending in the events callendar. 
+
+#### User Story ID 8 - Filter events by work sector
+
+As a user I want to be able to search for events in me interest areas.
+
+#### User Story ID 9 - Search for participants
+
+As a user I want to be able to search for people in my areas of interest in each event.
+
+#### User Story ID 10 - Toggle event participants
+
+As a user I want to be able to show/hide participants in an event.
+
+#### User Story ID 11 - Connect on LinkedIn
+
+As a user I want to be able to connect with someone in my linkedIn inside the app.
+
+#### User Story ID 12 - Find LinkedIn profile
+
+As a user I want to easily find someones linkedIn in their profile.
+
+#### User Story ID 13 - Go to LinkedIn profile
+
+As a user i wnat to be redirected to someones linkedIn when clicking a button.
+
+#### User Story ID 14 - Express interest
+
+As a logged in Company I want to express interest in participants so that I can communicate with them.
+
+#### User Story ID 15 - Acknowledge interest Notification
+
+As a logged in Participant I want to be notified when a Company expresses interest in me so that I can communicate with them.
+
+#### User Story ID 16 - Acknowledge interest Email
+
+As a logged in Participant I want to receive a email when a Company expresses interest in me so that I can communicate with them.
+
+#### User Story ID 17 - Edit profile
+
+As a logged in Generic User I want to be able to edit my profile so that I can change the information about me available to others.
+
+#### User Story ID 18 - Delete profile
+
+As a logged in Generic User I want to be able to delete my profile so that I can delete the information about me available to others.
+
+#### User Story ID 19 - Create Event
+
+As a logged in Generic User I want to create a new Event so that I can connect participants with companies on my event.
+
+#### User Story ID 20 - Share Event Codes
+
+As a logged in Generic User I want to receive the acess codes for my event via email so that I can share them with the participants and the companies attending.
+
+#### User Story ID 21 - Search Events
+
+As a logged in Generic User I want to be able to search for a specific event so that I can easily find the one I want.
+
+#### User Story ID 22 - Filter Events
+
+As a logged in Generic User I want to be able to filter the events list so that I can easily find the ones I want.
+
+#### User Story ID 23 - Search Participants
+
+As a logged in Generic User I want to be able to search for a specific participant so that I can easily find the one I want.
+
+#### User Story ID 24 - Filter Participants
+
+As a logged in Generic User I want to be able to filter the participants list so that I can easily find the ones I want.
+
 
 ### Domain model
 
