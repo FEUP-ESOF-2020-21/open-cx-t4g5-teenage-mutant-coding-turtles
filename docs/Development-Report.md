@@ -193,97 +193,411 @@ This section will contain the requirements of the product described as **user st
 
 As a user i want to be able to create a profile.
 
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Loging in as a Participant or Company
+    Given I complete the profile wizard
+    When I tap the “Finish” button
+    Then I am redirected to the home screen and the profile is saved
+```
+
+##### Value
+Must have
+
+##### Effort
+L
+
+
 #### User Story ID 2 - Select type of user
 
-As a user when I am creating a profile I want to be able to choose if I am a company or a participant.
+As a user when I first enter the app I want to be able to choose if I am a company or a participant.
+
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Loging in for the first time
+    Given I log in successfuly
+    When I tap the “Participant”, or “Company”, or “Organization” button
+    Then my user type is saved and I am redirected to the profile creation wizard
+```
+
+##### Value
+Must have
+
+##### Effort
+S
+
 
 #### User Story ID 3 - Add profile description
 
 As a user I want to be able have a description of myself when creating a profile.
 
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Creating user profile
+    Given I fill the first step of the profile creation wizard
+    When I write my description in the description textarea field
+    Then I can proceed  filling the profile form
+```
+
+##### Value
+Must Have
+
+##### Effort
+S
+
+
 #### User Story ID 4 - Create private profile section
 
 As a participant I want to have a private profile directed for companies.
 
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Creating user profile
+    Given I log in successfuly
+    When I fill the first step of the profile creation wizard
+    Then I can fill the private information fields in step 2 of the wizard
+```
+
+##### Value
+Must have
+
+##### Effort
+S
+
+
 #### User Story ID 5 - Choose attending events
 
-As a user I wnat to be able to choose which events I am atending.
+As a user I want to be able to choose which events I am atending.
 
-#### User Story ID 6 - Find event participants
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in the home screen
+    Given I logged in as a Participant
+    When I tap the “Enter” button for an event
+    Then I have successfuly chosen to attend that event and it is add to my schedule
+
+  Scenario: I am in an event screen
+    Given I logged in as a Participant
+    When I tap the “Enter” button
+    Then I have successfuly chosen to attend that event and it is add to my schedule
+```
+
+##### Value
+Must have
+
+##### Effort
+M
+
+
+#### User Story ID 6 - See event participants
 
 As a user I want to see who is attending each event.
+
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in an event screen
+    Given I log in successfuly
+    When I tap the "Participants" button
+    Then I can see a list of attending participants
+```
+
+##### Value
+Must have
+
+##### Effort
+M
+
 
 #### User Story ID 7 - See my events
 
 As a user I want to see which events I am attending in the events callendar. 
 
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in any screen of the app
+    Given I am logged in successfully
+    When I tap on the calendar icon on the bottom navigation bar
+    Then I can see a calendar containing the events I am atending in their respective dates
+```
+
+##### Value
+Must have
+
+##### Effort
+M
+
+
 #### User Story ID 8 - Filter events by work sector
 
-As a user I want to be able to search for events in me interest areas.
+As a user I want to be able to search for events in my interest areas.
+
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in any screen of the app
+    Given I tap on the search icon on the bottom navigation bar
+    When I type in sector keywords
+    Then the resulting events appear
+```
+
+##### Value
+Could have
+
+##### Effort
+M
+
 
 #### User Story ID 9 - Search for participants
 
 As a user I want to be able to search for people in my areas of interest in each event.
 
-#### User Story ID 10 - Toggle event participants
+##### Acceptance Tests
+```gherkin
 
-As a user I want to be able to show/hide participants in an event.
+  Scenario: I am in an event screen
+    Given I tap on the participants button
+    When I type in areas of interest keywords
+    Then the resulting participants appear
+```
 
-#### User Story ID 11 - Connect on LinkedIn
+##### Value
+Could have
 
-As a user I want to be able to connect with someone in my linkedIn inside the app.
+##### Effort
+M
 
-#### User Story ID 12 - Find LinkedIn profile
 
-As a user I want to easily find someones linkedIn in their profile.
+#### User Story ID 10 - Connect on LinkedIn
 
-#### User Story ID 13 - Go to LinkedIn profile
+As a user I want to be able to connect with someone in my LinkedIn inside the app.
 
-As a user i wnat to be redirected to someones linkedIn when clicking a button.
+##### Acceptance Tests
+```gherkin
 
-#### User Story ID 14 - Express interest
+  Scenario: I am in an event screen 
+    Given I tap on the participants button and go to the participants list screen
+    When I tap on the LinkedIn button next to a given participant
+    Then I send them a connection request on LinkedIn
+```
+
+##### Value
+Must have
+
+##### Effort
+L
+
+
+#### User Story ID 11 - Find LinkedIn profile
+
+As a user I want to easily find someones LinkedIn in their profile.
+
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in an event's participant list screen
+    Given I tap on a given participant and navigate to their profile
+    When I tap on their LinkedIn link
+    Then I should be redirected to their linked in profile in their default web browser
+```
+
+##### Value
+Must have
+
+##### Effort
+M
+
+
+#### User Story ID 12 - Express interest
 
 As a logged in Company I want to express interest in participants so that I can communicate with them.
 
-#### User Story ID 15 - Acknowledge interest Notification
+##### Acceptance Tests
+```gherkin
 
-As a logged in Participant I want to be notified when a Company expresses interest in me so that I can communicate with them.
+  Scenario: I am in an event's participant list screen
+    Given I am logged in as a Company
+    When I tap on a given participant's interest button
+    Then a notification and an email is sent to that user
+```
 
-#### User Story ID 16 - Acknowledge interest Email
+##### Value
+Must have
 
-As a logged in Participant I want to receive a email when a Company expresses interest in me so that I can communicate with them.
+##### Effort
+M
 
-#### User Story ID 17 - Edit profile
+
+#### User Story ID 13 - Edit profile
 
 As a logged in Generic User I want to be able to edit my profile so that I can change the information about me available to others.
 
-#### User Story ID 18 - Delete profile
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in any screen of the app
+    Given I tap on the profile icon and enter the user profile screen
+    When I tap in the edit icon
+    Then I can edit my profile information
+```
+
+##### Value
+Must have
+
+##### Effort
+L
+
+
+#### User Story ID 14 - Delete profile
 
 As a logged in Generic User I want to be able to delete my profile so that I can delete the information about me available to others.
 
-#### User Story ID 19 - Create Event
+##### Acceptance Tests
+```gherkin
+
+  Scenario: I am in any screen of the app
+    Given I tap on the settings icon and enter the user profile screen
+    When I tap on the delete profile option
+    And tap on the confirm button
+    Then my user profile information is deleted
+```
+
+##### Value
+Must have
+
+##### Effort
+M
+
+
+#### User Story ID 15 - Create Event
 
 As a logged in Generic User I want to create a new Event so that I can connect participants with companies on my event.
 
-#### User Story ID 20 - Share Event Codes
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Creating a new event
+    Given I am logged in as an Organization
+    When I tap on the "create new event" button
+    And fill out the event creation wizard
+    Then a new event is added to the event list and a notification is sent with the event's access code
+```
+
+##### Value
+Must have
+
+##### Effort
+L
+
+
+#### User Story ID 16 - Attend Event
 
 As a logged in Generic User I want to receive the acess codes for my event via email so that I can share them with the participants and the companies attending.
 
-#### User Story ID 21 - Search Events
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Entering an event
+    Given I am logged in as a Participant or a Company
+    When I tap on the "Enter" button for any event
+    And input that event's access code
+    Then that event is added to my schedule and I successfuly entered it
+```
+
+##### Value
+Must have
+
+##### Effort 
+L
+
+
+#### User Story ID 17 - Search Events
 
 As a logged in Generic User I want to be able to search for a specific event so that I can easily find the one I want.
 
-#### User Story ID 22 - Filter Events
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Searching for events by name
+    Given I tap on the search icon in the bottom navigation bar
+    When I type in the name of an event
+    Then that event appears listed bellow
+```
+
+##### Value
+Could have
+
+##### Effort
+L
+
+
+#### User Story ID 18 - Filter Events
 
 As a logged in Generic User I want to be able to filter the events list so that I can easily find the ones I want.
 
-#### User Story ID 23 - Search Participants
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Filtering events
+    Given I am on the home screen of the app
+    When I tap on the filter icon and the dropdown appears
+    And I select a filter
+    Then the resulting events appear listed bellow
+```
+
+##### Value
+Could have
+
+##### Effort
+L
+
+
+#### User Story ID 19 - Search Participants
 
 As a logged in Generic User I want to be able to search for a specific participant so that I can easily find the one I want.
 
-#### User Story ID 24 - Filter Participants
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Searching for participants
+    Given I am in an event's participants screen
+    When I tap on the search bar
+    And type the name of a participant in the search bar
+    Then I can see the desired participant
+```
+
+##### Value
+Could have
+
+##### Effort
+L
+
+
+#### User Story ID 20 - Filter Participants
 
 As a logged in Generic User I want to be able to filter the participants list so that I can easily find the ones I want.
+
+##### Acceptance Tests
+```gherkin
+
+  Scenario: Searching for participants
+    Given I am in an event's participants screen
+    When I tap on the filter icon
+    And select the desired filter option
+    Then I can see a list of attending participants filtered by that option
+```
+
+##### Value
+Could have
+
+##### Effort
+L
 
 
 ### Domain model
