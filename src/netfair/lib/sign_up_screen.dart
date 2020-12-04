@@ -25,11 +25,6 @@ class SignUpForm extends StatefulWidget {
 }
 
 class SignUpFormState extends State<SignUpForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a `GlobalKey<FormState>`,
-  // not a GlobalKey<MyCustomFormState>.
   final _signUpForm = GlobalKey<FormState>();
 
   @override
@@ -74,6 +69,23 @@ class SignUpFormState extends State<SignUpForm> {
               return null; //return 'Please enter a valid password';
             },
           ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Confirm Password',
+                labelText: 'Confirm Password',
+                prefixIcon: Icon(Icons.vpn_key_rounded)),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+              /*else if ()
+                 TODO: validate password 
+                 */
+              return null; //return 'Please enter a valid password';
+            },
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -92,7 +104,7 @@ class SignUpFormState extends State<SignUpForm> {
                     Navigator.pushNamed(context, '/landing');
                   }
                 },
-                child: Text('Sign In'),
+                child: Text('Sign Up'),
               ),
               ElevatedButton(
                 style: ButtonStyle(
@@ -102,8 +114,9 @@ class SignUpFormState extends State<SignUpForm> {
                 onPressed: () {
                   Scaffold.of(context).showSnackBar(
                       SnackBar(content: Text('Redirect to Sign Up Screen')));
+                  Navigator.pushNamed(context, '/');
                 },
-                child: Text('Sign Up'),
+                child: Text('Back to Log In'),
               ),
             ],
           )
