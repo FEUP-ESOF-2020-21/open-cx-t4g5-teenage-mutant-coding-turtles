@@ -60,7 +60,7 @@ class EventTile extends StatelessWidget {
                     SnackBar(content: Text('Redirected to profile')));
                 Navigator.pushNamed(context, '/profile');
               },
-              child: Text('Details'))
+              child: Text('Enter'))
         ],
       )
     ]);
