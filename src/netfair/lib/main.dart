@@ -4,6 +4,7 @@ import 'package:netfair/landing_screen.dart';
 import 'package:netfair/login_screen.dart';
 
 import 'package:netfair/profile_screen.dart';
+import 'package:netfair/sign_up_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NetFair',
-      initialRoute: '/landing',
+      initialRoute: '/',
       routes: {
         '/': (context) => LoginScreen(),
         '/landing': (context) => LandingScreen(),
-        '/profile' : (context) => Profile()
+        '/profile' : (context) => Profile(),
+        '/register' : (context) => SignUpScreen()
       },
       theme: ThemeData(
         brightness: Brightness.dark,
