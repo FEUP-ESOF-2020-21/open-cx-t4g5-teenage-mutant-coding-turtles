@@ -26,49 +26,64 @@ class CreateEventFormState extends State<CreateEventForm> {
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
-    return Center(child:
-        ColoredBox(
-            color: Colors.black,
-            child: Form(
-              key: _createEventFormForm,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TextFormField(
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
+    return Padding(child:
+        DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+                width: 1,
+                color: Colors.black
+            )
+          ),
+          child: Form(
+            key: _createEventFormForm,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.black,
+                    labelText: 'Event Name'
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                      fillColor: Colors.black,
+                      labelText: 'Event Location'
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Validate returns true if the form is valid, or false
+                      // otherwise.
+                      if (_createEventFormForm.currentState.validate()) {
+                        // If the form is valid, display a Snackbar.
+                        Scaffold.of(context)
+                            .showSnackBar(SnackBar(content: Text('Processing Data')));
                       }
-                      return null;
                     },
+                    child: Text('Submit'),
                   ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Validate returns true if the form is valid, or false
-                        // otherwise.
-                        if (_createEventFormForm.currentState.validate()) {
-                          // If the form is valid, display a Snackbar.
-                          Scaffold.of(context)
-                              .showSnackBar(SnackBar(content: Text('Processing Data')));
-                        }
-                      },
-                      child: Text('Submit'),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
+            ),
         )
-      )
+      ),
+      padding: EdgeInsets.all(20.0),
     );
   }
 }
