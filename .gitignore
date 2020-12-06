@@ -1,2 +1,6 @@
 open-cx-t4g5-teenage-mutant-coding-turtles
 use_cases.drawio
+src/netfair/build
+src/netfair/android
+src/netfair/ios
+src/netfair/.idea
