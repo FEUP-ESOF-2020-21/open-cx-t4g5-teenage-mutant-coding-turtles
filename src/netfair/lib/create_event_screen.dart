@@ -21,7 +21,7 @@ class CreateEventForm extends StatefulWidget {
 }
 
 class CreateEventFormState extends State<CreateEventForm> {
-  final _createEventFormForm = GlobalKey<FormState>();
+  final _createEventForm = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,12 @@ class CreateEventFormState extends State<CreateEventForm> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-                width: 1,
+                width: 0.1,
                 color: Colors.black
             )
           ),
           child: Form(
-            key: _createEventFormForm,
+            key: _createEventForm,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -64,13 +64,48 @@ class CreateEventFormState extends State<CreateEventForm> {
                     return null;
                   },
                 ),
+                Row(
+                  children: [
+                    Flexible(
+                        child:  InputDatePickerFormField(
+                          fieldLabelText: 'Event Start Date',
+                          firstDate: DateTime(2020),
+                          lastDate: DateTime(2021),
+                          initialDate: DateTime(2020,12,7),
+                        ),
+                    ),
+                    Flexible(
+                      child:  InputDatePickerFormField(
+                        fieldLabelText: 'Event End Date',
+                        firstDate: DateTime(2020),
+                        lastDate: DateTime(2021),
+                        initialDate: DateTime(2020,12,7),
+                      ),
+                    ),
+                  ]
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.multiline,
+                  minLines: 1,//Normal textInputField will be displayed
+                  maxLines: 5,// when user presses enter it will adapt to it
+                  decoration: InputDecoration(
+                      fillColor: Colors.black,
+                      labelText: 'Event Description'
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: ElevatedButton(
                     onPressed: () {
                       // Validate returns true if the form is valid, or false
                       // otherwise.
-                      if (_createEventFormForm.currentState.validate()) {
+                      if (_createEventForm.currentState.validate()) {
                         // If the form is valid, display a Snackbar.
                         Scaffold.of(context)
                             .showSnackBar(SnackBar(content: Text('Processing Data')));
