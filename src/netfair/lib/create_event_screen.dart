@@ -120,6 +120,7 @@ class CreateEventFormState extends State<CreateEventForm> {
                         // If the form is valid, display a Snackbar.
                         Scaffold.of(context)
                             .showSnackBar(SnackBar(content: Text('Processing Data')));
+                        Navigator.popAndPushNamed(context, '/landing');
                       }
                     },
                     child: Text('Submit'),
