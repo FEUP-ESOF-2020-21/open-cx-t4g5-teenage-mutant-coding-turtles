@@ -32,37 +32,26 @@ class _ProfileState extends State<EventProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Center(
-                child: CircleAvatar(
-                  radius: 40.0,
-                  backgroundImage: AssetImage('assets/terryCrews.jpg'),
-                ),
-              ),
-              Divider(
-                color: Colors.grey[800],
-                height: 60.0,
-              ),
-              Center(
-                child: Text(
-                  'Terry Crews',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22.0,
-                    letterSpacing: 2.0,
-                  ),
-                ),
-              ),
+              Image(image: AssetImage('assets/feupcarrerfair.jpg'), height: 200),
               SizedBox(height: 5.0),
-              Center(
-                child: Text(
-                  'Porto, Portugal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    letterSpacing: 2.0,
+              Row(
+                children: <Widget>[
+                  Expanded(child: Text(
+                    'FEUP Carrer Fair',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25.0,
+                      letterSpacing: 1.0,
+                    ),
+                  )
                   ),
-                ),
+                  SizedBox(width: 20.0),
+                  Icon(
+                    Icons.link,
+                    color: Colors.grey[400],
+                  )
+                ],
               ),
-
               SizedBox(height: 20.0),
               Row(
                 children: <Widget>[
@@ -144,7 +133,6 @@ class _ProfileState extends State<EventProfile> {
                       onPressed: null,
                       child: Text('Enter'))
               ),
-
             ],
           ),
         ),
