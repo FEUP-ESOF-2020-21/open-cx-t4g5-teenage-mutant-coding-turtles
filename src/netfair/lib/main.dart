@@ -5,6 +5,7 @@ import 'package:netfair/login_screen.dart';
 
 import 'package:netfair/profile_screen.dart';
 import 'package:netfair/sign_up_screen.dart';
+import 'package:netfair/event_profile_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => LoginScreen(),
         '/landing': (context) => LandingScreen(),
         '/profile' : (context) => Profile(),
-        '/register' : (context) => SignUpScreen()
+        '/register' : (context) => SignUpScreen(),
+        '/event-profile' : (context) => EventProfile()
       },
       theme: ThemeData(
         brightness: Brightness.dark,
