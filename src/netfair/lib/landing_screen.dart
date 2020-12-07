@@ -29,7 +29,7 @@ class EventTile extends StatelessWidget {
     return Column(children: [
       Row(
         children: [
-          Image(image: AssetImage('assets/app_logo_cropped.jpg'), height: 50),
+
           Text('Event Organizer'),
         ],
       ),
@@ -55,8 +55,12 @@ class EventTile extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.deepPurple),
               ),
-              onPressed: null,
-              child: Text('Details'))
+              onPressed: () {
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(content: Text('Redirected to profile')));
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Text('Enter'))
         ],
       )
     ]);

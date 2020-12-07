@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,32 +11,27 @@ class LoginScreen extends StatelessWidget {
               image: AssetImage('assets/app_logo_cropped.jpg'),
               height: 375,
             ),
-            LoginForm()
+            SignUpForm()
           ],
         ));
   }
 }
 
-class LoginForm extends StatefulWidget {
+class SignUpForm extends StatefulWidget {
   @override
-  LoginFormState createState() {
-    return LoginFormState();
+  SignUpFormState createState() {
+    return SignUpFormState();
   }
 }
 
-class LoginFormState extends State<LoginForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a `GlobalKey<FormState>`,
-  // not a GlobalKey<MyCustomFormState>.
-  final _formKey = GlobalKey<FormState>();
+class SignUpFormState extends State<SignUpForm> {
+  final _signUpForm = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
     return Form(
-      key: _formKey,
+      key: _signUpForm,
       child: Column(
         children: <Widget>[
           TextFormField(
@@ -49,9 +44,9 @@ class LoginFormState extends State<LoginForm> {
               if (value.isEmpty) {
                 return 'Please enter some text';
               } else if (RegExp(
-                      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
+                  r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$")
                   .hasMatch(
-                      value)) // regex from: https://stackoverflow.com/questions/16800540/validate-email-address-in-dart
+                  value)) // regex from: https://stackoverflow.com/questions/16800540/validate-email-address-in-dart
                 return null;
 
               return 'Enter a valid email';
@@ -68,8 +63,25 @@ class LoginFormState extends State<LoginForm> {
               if (value.isEmpty) {
                 return 'Please enter a valid password';
               }
-              /*else if () 
+              /*else if ()
                  TODO: validate password
+                 */
+              return null; //return 'Please enter a valid password';
+            },
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Confirm Password',
+                labelText: 'Confirm Password',
+                prefixIcon: Icon(Icons.vpn_key_rounded)),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+              /*else if ()
+                 TODO: validate password 
                  */
               return null; //return 'Please enter a valid password';
             },
@@ -80,31 +92,31 @@ class LoginFormState extends State<LoginForm> {
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.deepPurple),
+                  MaterialStateProperty.all<Color>(Colors.deepPurple),
                 ),
                 onPressed: () {
                   // Validate returns true if the form is valid, or false
                   // otherwise.
-                  if (_formKey.currentState.validate()) {
+                  if (_signUpForm.currentState.validate()) {
                     // If the form is valid, display a Snackbar.wsd
                     Scaffold.of(context).showSnackBar(
                         SnackBar(content: Text('Processing Data')));
                     Navigator.pushNamed(context, '/landing');
                   }
                 },
-                child: Text('Sign In'),
+                child: Text('Sign Up'),
               ),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.deepPurple),
+                  MaterialStateProperty.all<Color>(Colors.deepPurple),
                 ),
                 onPressed: () {
                   Scaffold.of(context).showSnackBar(
                       SnackBar(content: Text('Redirect to Sign Up Screen')));
-                  Navigator.pushNamed(context, '/register');
+                  Navigator.pushNamed(context, '/');
                 },
-                child: Text('Sign Up'),
+                child: Text('Back to Log In'),
               ),
             ],
           )
