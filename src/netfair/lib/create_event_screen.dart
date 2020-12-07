@@ -7,9 +7,16 @@ class CreateEventScreen extends StatelessWidget {
         backgroundColor: Color.fromRGBO(36, 36, 44, 1),
         body: ListView(
           children: [
-            CreateEventForm()
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Text('Create a Event',
+                style: TextStyle(fontSize: 20, color: Colors.deepPurple,),
+              ),
+            ),
+            CreateEventForm(),
           ],
-        ));
+        )
+    );
   }
 }
 
@@ -26,8 +33,8 @@ class CreateEventFormState extends State<CreateEventForm> {
   @override
   Widget build(BuildContext context) {
     // Build a Form widget using the _formKey created above.
-    return Padding(child:
-        DecoratedBox(
+    return Padding(
+      child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
@@ -102,6 +109,10 @@ class CreateEventFormState extends State<CreateEventForm> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.deepPurple),
+                    ),
                     onPressed: () {
                       // Validate returns true if the form is valid, or false
                       // otherwise.
@@ -118,7 +129,7 @@ class CreateEventFormState extends State<CreateEventForm> {
             ),
         )
       ),
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(10),
     );
   }
 }
