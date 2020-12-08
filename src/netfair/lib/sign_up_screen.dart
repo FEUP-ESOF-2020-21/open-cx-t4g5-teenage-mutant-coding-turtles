@@ -98,7 +98,7 @@ class SignUpFormState extends State<SignUpForm> {
                   // Validate returns true if the form is valid, or false
                   // otherwise.
                   if (_signUpForm.currentState.validate()) {
-                    // If the form is valid, display a Snackbar.wsd
+                    // If the form is valid, display a Snackbar
                     Scaffold.of(context).showSnackBar(
                         SnackBar(content: Text('Processing Data')));
                     Navigator.pushNamed(context, '/landing');
