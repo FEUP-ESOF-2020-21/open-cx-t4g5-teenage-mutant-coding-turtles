@@ -9,7 +9,7 @@ class CreateEventScreen extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.all(10),
-              child: Text('Create a Event',
+              child: Text('Create an Event',
                 style: TextStyle(fontSize: 20, color: Colors.deepPurple,),
               ),
             ),
