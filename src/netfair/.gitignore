@@ -1,12 +1,3 @@
-open-cx-t4g5-teenage-mutant-coding-turtles
-use_cases.drawio
-src/netfair/build
-src/netfair/android
-src/netfair/ios
-src/netfair/.idea
-
-
-
 # Miscellaneous
 *.class
 *.log
@@ -32,13 +23,13 @@ src/netfair/.idea
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
-src/netfair/.dart_tool/
-src/netfair/.flutter-plugins
-src/netfair/.flutter-plugins-dependencies
-src/netfair/.packages
-src/netfair/.pub-cache/
-src/netfair/.pub/
-src/netfair/build/
+.dart_tool
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
 
 .gradle/
 local.properties
