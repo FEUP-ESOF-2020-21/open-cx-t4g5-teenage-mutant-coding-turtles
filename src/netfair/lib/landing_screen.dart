@@ -16,8 +16,13 @@ class LandingScreen extends StatelessWidget {
             },
             child: Text('Go back!'),
           ),
-          
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/createEvent');
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

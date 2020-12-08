@@ -89,7 +89,7 @@ class LoginFormState extends State<LoginForm> {
                     // If the form is valid, display a Snackbar.wsd
                     Scaffold.of(context).showSnackBar(
                         SnackBar(content: Text('Processing Data')));
-                    Navigator.pushNamed(context, '/landing');
+                    Navigator.popAndPushNamed(context, '/landing');
                   }
                 },
                 child: Text('Sign In'),

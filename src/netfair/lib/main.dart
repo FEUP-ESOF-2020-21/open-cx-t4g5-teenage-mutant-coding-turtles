@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:netfair/create_event_screen.dart';
 import 'package:netfair/landing_screen.dart';
-
 import 'package:netfair/login_screen.dart';
+import 'package:netfair/profile_screen.dart';
+import 'package:netfair/sign_up_screen.dart';
 
 import 'package:netfair/profile_screen.dart';
 import 'package:netfair/sign_up_screen.dart';
@@ -22,7 +24,8 @@ class MyApp extends StatelessWidget {
         '/landing': (context) => LandingScreen(),
         '/profile' : (context) => Profile(),
         '/register' : (context) => SignUpScreen(),
-        '/event-profile' : (context) => EventProfile()
+        '/event-profile' : (context) => EventProfile(),
+        '/createEvent' : (context) => CreateEventScreen()
       },
       theme: ThemeData(
         brightness: Brightness.dark,
