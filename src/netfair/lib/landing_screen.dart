@@ -53,7 +53,11 @@ class EventTile extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all<Color>(Colors.deepPurple),
               ),
-              onPressed: null,
+              onPressed: () {
+                Scaffold.of(context).showSnackBar(
+                    SnackBar(content: Text('Redirected to event details')));
+                Navigator.pushNamed(context, '/event-profile');
+              },
               child: Text('Details')),
           ElevatedButton(
               style: ButtonStyle(
