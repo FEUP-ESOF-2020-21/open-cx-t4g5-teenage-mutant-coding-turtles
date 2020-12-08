@@ -8,6 +8,16 @@ class EventProfile extends StatefulWidget {
 }
 
 class _ProfileState extends State<EventProfile> {
+
+  var eventName = 'FEUP Carrer Fair';
+  var eventImage = 'assets/feupcarrerfair.jpg';
+  var eventLink = '';
+  var eventStartDate = '14/10';
+  var eventEndDate = '16/10';
+  var eventStartHour = '10:00';
+  var evenLocation = 'Online';
+  var eventDescription = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +42,12 @@ class _ProfileState extends State<EventProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image(image: AssetImage('assets/feupcarrerfair.jpg'), height: 200),
+              Image(image: AssetImage(eventImage), height: 200),
               SizedBox(height: 5.0),
               Row(
                 children: <Widget>[
                   Expanded(child: Text(
-                    'FEUP Carrer Fair',
+                    eventName,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 25.0,
@@ -61,7 +71,7 @@ class _ProfileState extends State<EventProfile> {
                   ),
                   SizedBox(width: 20.0),
                   Expanded(child: Text(
-                    '14/10 - 16/10',
+                    eventStartDate + ' - ' + eventEndDate,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
@@ -80,7 +90,7 @@ class _ProfileState extends State<EventProfile> {
                   ),
                   SizedBox(width: 20.0),
                   Expanded(child: Text(
-                    'Event starts at 10:00',
+                    'Event starts at ' + eventStartHour,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
@@ -99,7 +109,7 @@ class _ProfileState extends State<EventProfile> {
                   ),
                   SizedBox(width: 20.0),
                   Text(
-                    'Online',
+                    evenLocation,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
@@ -112,7 +122,7 @@ class _ProfileState extends State<EventProfile> {
               Row(
                 children: <Widget>[
                   Expanded(child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    eventDescription,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
