@@ -1,17 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../Components/MyAppBar.dart';
+import '../Components/MyBottomNavigationBar.dart';
 
 
-class EventProfile extends StatefulWidget {
+class EventScreen extends StatefulWidget {
   @override
-  _ProfileState createState() => _ProfileState();
+  _EventScreenState createState() => _EventScreenState();
 }
 
-class _ProfileState extends State<EventProfile> {
+
+class _EventScreenState extends State<EventScreen> {
+
+  int _selectedIndex = 2;
+
+  void _onItemTapped(int index){
+    setState((){
+      _selectedIndex = index;
+    });
+  }
 
   var eventName = 'FEUP Carrer Fair';
-  var eventImage = 'assets/feupcarrerfair.jpg';
+  var eventImage = 'assets/img/events/feupcarrerfair.jpg';
   var eventLink = 'https://paginas.fe.up.pt/~careerf20/';
   var eventStartDate = '14/10';
   var eventEndDate = '16/10';
@@ -27,27 +38,17 @@ class _ProfileState extends State<EventProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(36, 36, 44, 1),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(36, 36, 44, 1),
-        elevation: 0.0,
-        title: Row(
-          children: [
-
-            Image(
-                image: AssetImage('assets/app_logo.jpg'),
-                height: 40
-            ),
-            Text('   NetFair')
-          ],
-        ),
-      ),
+      appBar: MyAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image(image: AssetImage(eventImage), height: 200),
+              Image(
+                  image: AssetImage(eventImage),
+                  height: 200
+              ),
               SizedBox(height: 5.0),
               Row(
                 children: <Widget>[
@@ -158,6 +159,7 @@ class _ProfileState extends State<EventProfile> {
           ),
         ),
       ),
+      bottomNavigationBar: MyBottomNavigationBar.getBottomNavigationBar(_selectedIndex, _onItemTapped),
     );
   }
 }
