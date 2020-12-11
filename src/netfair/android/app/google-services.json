@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "946216919066",
+    "project_id": "netfair-8487c",
+    "storage_bucket": "netfair-8487c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946216919066:android:20371ba5d10684c51a71a3",
+        "android_client_info": {
+          "package_name": "pt.up.fe.netfair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946216919066-9bkh46tdv642poihktpaqt5h3vh3fpuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCcur2AIl0HRj2efn_I5BuKUQ2AV-0IwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946216919066-9bkh46tdv642poihktpaqt5h3vh3fpuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
