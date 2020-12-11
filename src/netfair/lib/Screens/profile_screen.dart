@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../Components/MyAppBar.dart';
-import '../Components/MyAppBar.dart';
 import '../Components/MyBottomNavigationBar.dart';
 
 
