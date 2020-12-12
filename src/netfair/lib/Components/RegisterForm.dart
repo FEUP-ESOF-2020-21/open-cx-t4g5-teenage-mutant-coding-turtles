@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Decorations/text_field_decor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class RegisterForm extends StatefulWidget {
   @override
@@ -14,6 +16,11 @@ class _RegisterFormState extends State<RegisterForm> {
   // Note: This is a `GlobalKey<FormState>`,
   // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _success;
+  String _userEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +34,7 @@ class _RegisterFormState extends State<RegisterForm> {
             decoration: textFieldDecoration(),
             height: 50.0,
             child: TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Email',
@@ -49,6 +57,7 @@ class _RegisterFormState extends State<RegisterForm> {
             decoration: textFieldDecoration(),
             height: 50.0,
             child: TextFormField(
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -79,9 +88,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 if (value.isEmpty) {
                   return 'Please enter a valid password';
                 }
-                /*else if ()
-                 TODO: validate password
-                 */
+                else if (value != _passwordController.text) {
+                  return 'Password does not match!';
+                }
                 return null; //return 'Please enter a valid password';
               },
             ),
@@ -93,9 +102,9 @@ class _RegisterFormState extends State<RegisterForm> {
             child: RaisedButton(
               color: Colors.blue,
               shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-              onPressed: () {
+              onPressed: () async {
                 if (_formKey.currentState.validate()) {
-                  Navigator.popAndPushNamed(context, '/chooseUserType');
+                  _register();
                 }
               },
               child: Text(
@@ -127,5 +136,30 @@ class _RegisterFormState extends State<RegisterForm> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the Widget is disposed
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _register() async {
+    final User user = (await _auth.createUserWithEmailAndPassword(
+      email: _emailController.text,
+      password: _passwordController.text,
+    ))
+        .user;
+    if (user != null) {
+      setState(() {
+        _success = true;
+        _userEmail = user.email;
+        Navigator.popAndPushNamed(context, '/chooseUserType');
+      });
+    } else {
+      _success = false;
+    }
   }
 }
