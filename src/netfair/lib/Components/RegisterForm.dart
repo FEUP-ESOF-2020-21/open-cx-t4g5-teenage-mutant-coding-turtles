@@ -123,7 +123,7 @@ class _RegisterFormState extends State<RegisterForm> {
               color: Colors.greenAccent,
               shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
               onPressed: () {
-                Navigator.pushNamed(context, '/');
+                Navigator.pushNamed(context, '/login');
               },
               child: Text(
                 "Back",

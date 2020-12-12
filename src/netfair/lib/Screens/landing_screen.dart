@@ -32,7 +32,7 @@ class _LandingScreenState extends State<LandingScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/createEvent');
+            Navigator.pushNamed(context, '/');
           },
           backgroundColor: Colors.greenAccent,
           splashColor: Colors.pinkAccent,

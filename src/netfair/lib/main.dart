@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netfair/Screens/wrapper.dart';
 import 'Screens/choose_user_type_screen.dart';
 import 'Screens/create_event_screen.dart';
 import 'Screens/create_profile_screen.dart';
@@ -47,19 +48,20 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    /*
+
     // Show error message if initialization failed
     if(_error) {
-      return SomethingWentWrong();
+      return Row(children: [Text('Error')],);
     }
 
     // Show a loader until FlutterFire is initialized
     if (!_initialized) {
-      return Loading();
+      return Row(children: [Text('Loading')],);
     }
-  */
+
     return MyApp();
   }
+
 }
 
 class MyApp extends StatelessWidget {
@@ -68,9 +70,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'NetFair',
-      initialRoute: '/',
+      home: Wrapper(),
       routes: {
-        '/': (context) => LoginScreen(),
+        '/login': (context) => LoginScreen(),
         '/landing': (context) => LandingScreen(),
         '/profile' : (context) => ProfileScreen(),
         '/register' : (context) => SignUpScreen(),
