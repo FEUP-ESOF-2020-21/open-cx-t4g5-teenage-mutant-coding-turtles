@@ -28,4 +28,6 @@ class DBEvent {
     };
   }
 
+  DBEvent(this.name, this.description, this.location, this.startDate, this.endDate, this.startHour, this.endHour);
+
 }
