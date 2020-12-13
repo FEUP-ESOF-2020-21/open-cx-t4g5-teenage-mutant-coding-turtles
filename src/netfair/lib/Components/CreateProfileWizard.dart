@@ -1,5 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:netfair/models/database.dart';
+import 'package:netfair/models/user.dart';
 import '../Decorations/text_field_decor.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class CreateProfileWizard extends StatefulWidget {
   @override
@@ -14,6 +19,12 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
 
   String dropdownValue = "Área de trabalho";
   String dropdownValueAno = "Ano";
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _linkedInController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   bool fullTimeCheck = false;
   bool partTimeCheck = false;
@@ -47,6 +58,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
     if (currentStep + 1 != steps.length){
       goTo(currentStep + 1);
     } else {
+      newUser();
       setState(() => complete = true);
     }
   }
@@ -87,6 +99,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
                 decoration: textFieldDecoration(),
                 height: 50.0,
                 child: TextFormField(
+                  controller: _nameController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Nome',
@@ -99,6 +112,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
                 decoration: textFieldDecoration(),
                 height: 50.0,
                 child: TextFormField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Email',
@@ -122,6 +136,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
                 decoration: textFieldDecoration(),
                 height: 50.0,
                 child: TextFormField(
+                  controller: _linkedInController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'LinkedIn',
@@ -160,6 +175,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
                 decoration: textFieldDecoration(),
                 height: 50.0,
                 child: TextFormField(
+                  controller: _locationController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Localização',
@@ -212,6 +228,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
               decoration: textFieldDecoration(),
               height: 200.0,
               child: TextFormField(
+                controller: _descriptionController,
                 maxLines: 8,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -389,6 +406,11 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
     ];
 
     return steps;
+  }
+
+  void newUser(){
+    DBUser user = new DBUser(_nameController.text, _emailController.text, _locationController.text, _linkedInController.text, dropdownValue, _descriptionController.text);
+    user.setId(saveUser(user));
   }
 
   @override
