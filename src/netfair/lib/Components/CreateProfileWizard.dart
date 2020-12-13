@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:netfair/models/database.dart';
-import 'package:netfair/models/user.dart';
+import 'package:netfair/Models/database.dart';
+import 'package:netfair/Models/user.dart';
 import '../Decorations/text_field_decor.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
