@@ -24,6 +24,9 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
+  File _image;    
+  String _uploadedFileURL; 
+
   next(){
     if (currentStep + 1 != steps.length){
       goTo(currentStep + 1);
@@ -124,7 +127,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   firstDate: DateTime.now(),
                   initialDate: DateTime.now().add(Duration(days: 1)),
                   onDateChanged: (selectedDate){
-
+                    _dateStartController.text = selectedDate.toString();
                   },
                 )
             ),
@@ -139,6 +142,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   firstDate: DateTime.now(),
                   initialDate: DateTime.now().add(Duration(days: 1)),
                   onDateChanged: (selectedDate){
+                    _dateEndController.text = selectedDate.toString();
                   },
                 )
             ),
@@ -185,7 +189,10 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   color: Colors.black26,
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                   onPressed: () {
-                    // TODO upload file logic
+                    
+                    chooseFile();
+                    uploadFile();
+
                   },
                   label: Text(
                     "carregar foto de capa",
@@ -208,9 +215,31 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
   }
 
   void newEvent(){
-    DBEvent event = new DBEvent(_nameController.text, _locationController.text, _locationController.text, _dateStartController.text, _dateEndController.text, _hourStartController.text, _hourEndController.text);
+    DBEvent event = new DBEvent(_nameController.text, _descriptionController.text, _locationController.text, _dateStartController.text, _dateEndController.text, _hourStartController.text, _hourEndController.text);
     event.setId(saveEvent(event));
   }
+
+  Future chooseFile() async {    
+   await ImagePicker.pickImage(source: ImageSource.gallery).then((image) {    
+     setState(() {    
+       _image = image;    
+     });    
+   });    
+ } 
+
+ Future uploadFile() async {    
+   StorageReference storageReference = FirebaseStorage.instance    
+       .ref()    
+       .child('events/${Path.basename(_image.path)}}');    
+   StorageUploadTask uploadTask = storageReference.putFile(_image);    
+   await uploadTask.onComplete;    
+   print('Image Uploaded');    
+   storageReference.getDownloadURL().then((fileURL) {    
+     setState(() {    
+       _uploadedFileURL = fileURL;    
+     });    
+   });    
+ } 
 
   @override
   Widget build(BuildContext context){

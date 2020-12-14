@@ -11,6 +11,12 @@ import 'Screens/sign_up_screen.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+import 'dart:io';    
+import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore    
+import 'package:flutter/material.dart';    
+import 'package:image_picker/image_picker.dart'; // For Image Picker    
+import 'package:path/path.dart' as Path; 
+
 void main() {
   runApp(App());
 }
