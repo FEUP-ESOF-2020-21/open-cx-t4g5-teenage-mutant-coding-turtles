@@ -30,7 +30,8 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
       )),
       actions: [
         IconButton(icon: Icon(Icons.logout), onPressed: () => {
-          _auth.signOut(),Navigator.popAndPushNamed(context, '/login')
+          _auth.signOut(),
+        Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false)
         })
       ],
     );
