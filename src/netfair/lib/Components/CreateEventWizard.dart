@@ -4,6 +4,14 @@ import '../Components/MyTextFieldDatePicker.dart';
 import 'package:netfair/Models/database.dart';
 import 'package:netfair/Models/event.dart';
 
+/*
+import 'dart:io';    
+import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore    
+//import 'package:flutter/material.dart';    
+import 'package:image_picker/image_picker.dart'; // For Image Picker    
+import 'package:path/path.dart' as Path; 
+*/
+
 
 class CreateEventWizard extends StatefulWidget {
   @override
@@ -24,8 +32,9 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
-  File _image;    
-  String _uploadedFileURL; 
+
+  //File _image;    
+  //String _uploadedFileURL; 
 
   next(){
     if (currentStep + 1 != steps.length){
@@ -190,9 +199,9 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                   onPressed: () {
                     
-                    chooseFile();
-                    uploadFile();
-
+                    //chooseFile();
+                    //uploadFile();
+                    
                   },
                   label: Text(
                     "carregar foto de capa",
@@ -218,7 +227,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
     DBEvent event = new DBEvent(_nameController.text, _descriptionController.text, _locationController.text, _dateStartController.text, _dateEndController.text, _hourStartController.text, _hourEndController.text);
     event.setId(saveEvent(event));
   }
-
+/*
   Future chooseFile() async {    
    await ImagePicker.pickImage(source: ImageSource.gallery).then((image) {    
      setState(() {    
@@ -226,7 +235,8 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
      });    
    });    
  } 
-
+ */
+/*
  Future uploadFile() async {    
    StorageReference storageReference = FirebaseStorage.instance    
        .ref()    
@@ -239,7 +249,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
        _uploadedFileURL = fileURL;    
      });    
    });    
- } 
+ } */
 
   @override
   Widget build(BuildContext context){
