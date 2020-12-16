@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netfair/Models/database.dart';
 import 'package:netfair/Models/user.dart';
@@ -25,6 +26,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
   final TextEditingController _locationController = TextEditingController();
   final TextEditingController _linkedInController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _academicsController = TextEditingController();
 
   bool fullTimeCheck = false;
   bool partTimeCheck = false;
@@ -337,6 +339,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
               decoration: textFieldDecoration(),
               height: 50.0,
               child: TextFormField(
+                controller: _academicsController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Formação académica',
@@ -409,7 +412,7 @@ class _CreateProfileWizardState extends State<CreateProfileWizard> {
   }
 
   void newUser(){
-    DBUser user = new DBUser(_nameController.text, _emailController.text, _locationController.text, _linkedInController.text, dropdownValue, _descriptionController.text);
+    DBUser user = new DBUser(_nameController.text, _emailController.text, _locationController.text, _linkedInController.text, dropdownValue, _descriptionController.text, partTimeCheck, fullTimeCheck, estagioCheck, _academicsController.text, dropdownValueAno, concluidoCheck);
     user.setId(saveUser(user));
   }
 
