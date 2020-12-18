@@ -625,6 +625,11 @@ For this purpose we have divided the project into 4 sections:
 * Decorations: This module contains some decorations for the app.
 * Screens: This module contains the code for all of the screens that appear in the app.
 
+
+![image uml logical architecture](uml-diagram-logical.png)
+
+
+
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
 
