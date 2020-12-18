@@ -626,7 +626,7 @@ For this purpose we have divided the project into 4 sections:
 * Screens: This module contains the code for all of the screens that appear in the app.
 
 
-![image uml logical architecture](uml-diagram-logical.png)
+![image uml logical architecture](images/uml-diagram-logical.png)
 
 
 
