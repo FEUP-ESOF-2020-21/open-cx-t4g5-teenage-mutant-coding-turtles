@@ -1,4 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
+/*import 'package:DatabaseReference';*/
 
 class DBEvent {
   DatabaseReference _id;
@@ -10,6 +11,7 @@ class DBEvent {
   String startHour;
   String endHour;
   Set participants  = {};
+  
 
   void setId(DatabaseReference id){
     this._id = id;
@@ -27,5 +29,7 @@ class DBEvent {
       'participants' : this.participants.toList(),
     };
   }
+
+  DBEvent(this.name, this.description, this.location, this.startDate, this.endDate, this.startHour, this.endHour);
 
 }

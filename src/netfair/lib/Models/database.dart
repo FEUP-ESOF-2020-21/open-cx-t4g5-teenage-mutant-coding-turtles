@@ -17,3 +17,4 @@ DatabaseReference saveEvent(DBEvent event) {
   id.set(event.toJson());
   return id;
 }
+
