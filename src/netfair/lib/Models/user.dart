@@ -8,6 +8,12 @@ class DBUser {
   String linkedIn;
   String workArea;
   String description;
+  bool partTimeAvailability;
+  bool fullTimeAvailability;
+  bool internshipAvailability;
+  String academics;
+  String academicsYear;
+  bool concludedStudies;
   Set eventsEntered  = {};
 
   void setId(DatabaseReference id){
@@ -22,10 +28,16 @@ class DBUser {
       'linkedIn' : this.linkedIn,
       'workArea' : this.workArea,
       'description' : this.description,
+      'partTimeAvailability' : this.partTimeAvailability,
+      'fullTimeAvailability' : this.fullTimeAvailability,
+      'internshipAvailability' : this.internshipAvailability,
+      'academics' : this.academics,
+      'academicsYear' : this.academicsYear,
+      'concludedStudies' : this.concludedStudies,
       'eventsEntered' : this.eventsEntered.toList(),
     };
   }
 
   DBUser(this.name, this.email, this.location, this.linkedIn, this.workArea,
-      this.description);
+      this.description, this.partTimeAvailability, this.fullTimeAvailability, this.internshipAvailability, this.academics, this.academicsYear, this.concludedStudies);
 }
