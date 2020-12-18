@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import '../Decorations/text_field_decor.dart';
 import '../Components/MyTextFieldDatePicker.dart';
+import 'package:netfair/Models/database.dart';
+import 'package:netfair/Models/event.dart';
+
+/*
+import 'dart:io';    
+import 'package:firebase_storage/firebase_storage.dart'; // For File Upload To Firestore    
+//import 'package:flutter/material.dart';    
+import 'package:image_picker/image_picker.dart'; // For Image Picker    
+import 'package:path/path.dart' as Path; 
+*/
 
 
 class CreateEventWizard extends StatefulWidget {
@@ -14,10 +24,23 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
   int currentStep = 0;
   bool complete = false;
 
+  final TextEditingController _hourEndController = TextEditingController();
+  final TextEditingController _hourStartController = TextEditingController();
+  final TextEditingController _dateEndController = TextEditingController();
+  final TextEditingController _dateStartController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+
+
+  //File _image;    
+  //String _uploadedFileURL; 
+
   next(){
     if (currentStep + 1 != steps.length){
       goTo(currentStep + 1);
     } else {
+      newEvent();
       setState(() => complete = true);
     }
   }
@@ -58,6 +81,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                 decoration: textFieldDecoration(),
                 height: 50.0,
                 child: TextFormField(
+                  controller: _nameController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Nome',
@@ -71,6 +95,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                 height: 200.0,
                 child: TextFormField(
                   maxLines: 8,
+                  controller: _descriptionController,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Descrição',
@@ -92,6 +117,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
               decoration: textFieldDecoration(),
               height: 50.0,
               child: TextFormField(
+                controller: _locationController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Localização',
@@ -110,7 +136,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   firstDate: DateTime.now(),
                   initialDate: DateTime.now().add(Duration(days: 1)),
                   onDateChanged: (selectedDate){
-
+                    _dateStartController.text = selectedDate.toString();
                   },
                 )
             ),
@@ -125,7 +151,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   firstDate: DateTime.now(),
                   initialDate: DateTime.now().add(Duration(days: 1)),
                   onDateChanged: (selectedDate){
-
+                    _dateEndController.text = selectedDate.toString();
                   },
                 )
             ),
@@ -134,6 +160,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
               decoration: textFieldDecoration(),
               height: 50.0,
               child: TextFormField(
+                controller: _hourStartController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Hora de Início',
@@ -146,6 +173,7 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
               decoration: textFieldDecoration(),
               height: 50.0,
               child: TextFormField(
+                controller: _hourEndController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Hora de Fim',
@@ -170,7 +198,10 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
                   color: Colors.black26,
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10.0)),
                   onPressed: () {
-                    // TODO upload file logic
+                    
+                    //chooseFile();
+                    //uploadFile();
+                    
                   },
                   label: Text(
                     "carregar foto de capa",
@@ -191,6 +222,34 @@ class _CreateEventWizardState extends State<CreateEventWizard> {
 
     return steps;
   }
+
+  void newEvent(){
+    DBEvent event = new DBEvent(_nameController.text, _descriptionController.text, _locationController.text, _dateStartController.text, _dateEndController.text, _hourStartController.text, _hourEndController.text);
+    event.setId(saveEvent(event));
+  }
+/*
+  Future chooseFile() async {    
+   await ImagePicker.pickImage(source: ImageSource.gallery).then((image) {    
+     setState(() {    
+       _image = image;    
+     });    
+   });    
+ } 
+ */
+/*
+ Future uploadFile() async {    
+   StorageReference storageReference = FirebaseStorage.instance    
+       .ref()    
+       .child('events/${Path.basename(_image.path)}}');    
+   StorageUploadTask uploadTask = storageReference.putFile(_image);    
+   await uploadTask.onComplete;    
+   print('Image Uploaded');    
+   storageReference.getDownloadURL().then((fileURL) {    
+     setState(() {    
+       _uploadedFileURL = fileURL;    
+     });    
+   });    
+ } */
 
   @override
   Widget build(BuildContext context){

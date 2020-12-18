@@ -619,9 +619,11 @@ In this section you should start by briefly describing the overall components of
 ### Logical architecture
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
-It can be beneficial to present the system both in a horizontal or vertical decomposition:
-* horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
-* vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
+For this purpose we have divided the project into 4 sections:
+* Models: Models for each structure of the database. Communications between firebase database and the structures mentioned before.
+* Components: This module contains the code for certain components of the app, for example the navigation bar, and also the wizards used to create both the events and the user profiles.
+* Decorations: This module contains some decorations for the app.
+* Screens: This module contains the code for all of the screens that appear in the app.
 
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.

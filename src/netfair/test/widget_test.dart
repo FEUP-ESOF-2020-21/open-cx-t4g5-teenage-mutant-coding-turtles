@@ -7,24 +7,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:netfair/Models/user.dart';
 
 import 'package:netfair/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('User should be created and parsed to a JSON', () {
+      final user = DBUser('Joaquim', 'joaquim21@gmail.com', 'Porto', 'linkedIn', 'Design', 'Sou o Joaquim, gosto de design e de testes', false, true, false, 'Escola de Design do Porto', '3', true);
+      expect(user.toJson(), {
+        "name": "Joaquim",
+        "email": "joaquim21@gmail.com",
+        "location": "Porto",
+        "linkedIn": "linkedIn",
+        "workArea": "Design",
+        "description": "Sou o Joaquim, gosto de design e de testes",
+        "partTimeAvailability": false,
+        "fullTimeAvailability": true,
+        "internshipAvailability": false,
+        "academics": "Escola de Design do Porto",
+        "academicsYear": "3",
+        "concludedStudies": true,
+        "eventsEntered": []
+      });
   });
 }
