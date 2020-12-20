@@ -631,9 +631,11 @@ For this purpose we have divided the project into 4 sections:
 
 
 ### Physical architecture
-The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
+The physical layer in our app consists on the user installing the app on their smartphone which uses firebase as it's database server. In order to communicate with the database our app uses HTTPS requests to be able to retrieve and store all the data needed.
 
-It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
+![image uml physical architecture](images/physical-architecture.png)
+
+
 
 ### Prototype
 To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
