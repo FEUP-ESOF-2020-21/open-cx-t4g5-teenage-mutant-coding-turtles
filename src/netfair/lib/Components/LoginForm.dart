@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Decorations/text_field_decor.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class LoginForm extends StatefulWidget {
   @override
@@ -9,6 +11,8 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,7 @@ class _LoginFormState extends State<LoginForm> {
             decoration: textFieldDecoration(),
             height: 50.0,
             child: TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Email',
@@ -44,6 +49,7 @@ class _LoginFormState extends State<LoginForm> {
             decoration: textFieldDecoration(),
             height: 50.0,
             child: TextFormField(
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -53,9 +59,6 @@ class _LoginFormState extends State<LoginForm> {
                 if (value.isEmpty) {
                   return 'Please enter a valid password';
                 }
-                /*else if ()
-                 TODO: validate password
-                 */
                 return null; //return 'Please enter a valid password';
               },
             ),
@@ -71,7 +74,7 @@ class _LoginFormState extends State<LoginForm> {
                 // Validate returns true if the form is valid, or false
                 // otherwise.
                 if (_formKey.currentState.validate()) {
-                  Navigator.popAndPushNamed(context, '/landing');
+                  _signInWithEmailAndPassword();
                 }
               },
               child: Text(
@@ -104,4 +107,29 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _signInWithEmailAndPassword() async {
+    try {
+      final User user = (await _auth.signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      )).user;
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text("${user.email} signed in"),
+      ));
+      Navigator.popAndPushNamed(context, '/landing');
+    } catch (e) {
+      Scaffold.of(context).showSnackBar(SnackBar(
+        content: Text("Failed to sign in with Email & Password"),
+      ));
+    }
+  }
+
 }

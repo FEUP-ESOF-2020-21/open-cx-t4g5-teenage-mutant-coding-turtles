@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
@@ -22,9 +25,15 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
           Container(
             margin: const EdgeInsets.only(left: 30),
             child: const Text('netfair'),
-          )
+          ),
         ],
       )),
+      actions: [
+        IconButton(icon: Icon(Icons.logout), onPressed: () => {
+          _auth.signOut(),
+        Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false)
+        })
+      ],
     );
   }
 }
